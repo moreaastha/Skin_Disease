@@ -1,0 +1,50 @@
+.header{
+    background-color: aqua;
+    /* border-radius: 0px 0px 10px 10px ; */
+    border:none;
+    height:100px;
+    width: 1000px;
+   }  
+    .head1,.head2{
+    display:block;
+    height:100px;
+    width:500px;
+    /* padding:200px 300px 200px 200px; */
+}
+.head2{
+ height:200px;
+ width:300px; 
+ margin-top: 100px;
+}
+.formm
+{
+ display:flex;
+ height:90px;
+ border:none;
+ background-color: gray;
+}
+.image{
+    height:200px;
+    width:200px;
+} 
+#button{
+  display: block;
+    height:40px;
+    width:150px;
+    border: none;
+    background-color: rgb(12, 138, 235);
+    border-radius:2px  0px 2px 0px;
+}
+.bt{
+    height: 50px;
+    width:200px;
+    background-color:gray;
+    border:none;
+    margin-top:20px;
+    
+
+}
+.img{
+    height:200px;
+    width:300px;
+}

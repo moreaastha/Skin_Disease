@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="logo" href="./cblogo.png">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./image.js">
+    <link rel="stylesheet" href="./images_insert.js">
+    <title>image-classification</title>
+</head>
+<body>
+    <header class="header">
+        <div class="head1">
+        <h1> CODE CRAFTERS </h1>
+        </div>
+        <div class="head2">
+        <img src="./images.png" alt="image of logo" class="image">
+        </div>
+    </header>
+    <main>
+<form action="/predict" method="GET" class="formm">
+
+    <label for="img" aria-placeholder="insert image"> insert your image here </label>
+    <input type="file" name="file" id="file" autocomplete="off" required>
+    <!-- <input type="image" id="img" placeholder="insert image for disease"> -->
+    <input type="text" placeholder="enter f_back ">
+    <input type="submit"  value="submit"/>
+</form>
+    </main>
+    <footer class="footer">
+        <button class="bt"> change</button>
+     <img src="./images.png" alt=" images" class="img">
+
+    </footer>
+</body>
+</html>

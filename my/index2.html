@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODE CRAFTERS</title>
+    <style>
+        img{
+          height:100%;
+          width:100%;  
+        }
+    </style>
+</head>
+<body>
+    <label for="file" class="button" style=" display:block; margin-top:20px; margin-bottom:20px;" > 
+        upload your image for disease diagnosis.
+    </label>
+    <label for="file" style="display: block;  margin-top:20px; margin-bottom:20px;">  !! Please ensure image is related to skin.</label>
+
+    <input type="file" id="imageInput" accept="image/*"  style="background: #0450d5;
+    color: white;
+    line-height: 1.2;
+    padding: 15px;
+    border-radius: 4px;
+    cursor: pointer;">
+    <button onclick="uploadImage()"  style="background: #0450d5;
+    color: white;
+    line-height: 1.2;
+    padding: 15px;
+    border-radius: 4px;
+    cursor: pointer;"> Upload </button>
+<div>
+    <div>
+       <img src="https://as2.ftcdn.net/v2/jpg/01/17/12/37/1000_F_117123796_MBKR6xeMfrBdfhSWNWtjTddwUci1F2HR.jpg" alt="background image"> 
+    </div>
+    <div>
+        <h1  id="h1"> Disease : </h1>
+        <h1 id="h12"></h1>
+    </div>
+</div>
+    <script>
+        async function uploadImage() {
+            const fileInput = document.getElementById('imageInput');
+            const file = fileInput.files[0];
+            
+            const formData = new FormData();
+            formData.append('file',file);
+            
+            try {
+                const response = await fetch('http://127.0.0.1:800/predict', {
+                    method: 'POST',
+                    body: formData
+                });
+                if (response.ok) {
+                    const jsonResponse = await response.json();
+                     let disease=jsonResponse.class;
+                     let confidence=jsonResponse.confidence;
+                     console.log(jsonResponse);
+                    console.log(jsonResponse.class);
+                    console.log(jsonResponse.confidence);
+                    const h1=document.querySelector("h1");
+                    const h12=document.querySelector("h12");
+                    const text=h1.innerText;
+                    h1.innerText="Disease : "+disease;
+                  //  h12.innerText=confidence*100;
+                } else {
+                    console.error('Failed to upload image');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+    </script>
+</body>
+</html>
